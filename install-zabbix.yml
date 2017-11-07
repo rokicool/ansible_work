@@ -1,0 +1,7 @@
+---
+- hosts: all
+  roles:
+    - role: dj-wasabi.zabbix-agent
+      zabbix_agent_server: zabbix.opswat.com
+      zabbix_agent_serveractive: zabbix.opswat.com
+      zabbix_url: http://zabbix.opswat.com
