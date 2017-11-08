@@ -12,6 +12,7 @@
 # or 
 # UserParameter=linux.security.updates, aptitude -F%p search "?upgradable ?archive(`sed '/^deb .*security/!d;s/^deb [^ ]* \([^ ]*\) .*/\1/;q' /etc/apt/sources.list`)" 2>/dev/null | wc -l
 
+{% if user_parameter_linux_security_updates is defined and user_parameter_linux_security_updates %}
 UserParameter=linux.security.updates, {{ user_parameter_linux_security_updates }} 
-
+{% endif %}
 

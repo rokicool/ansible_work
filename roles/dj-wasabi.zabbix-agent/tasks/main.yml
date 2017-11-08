@@ -123,8 +123,8 @@
 # added by roki on 2017-11-07 
 - name: "Add linux.security.updates user parameter"
   template:
-    src: user_parameter.conf.j2
-    dest: "{{ zabbix_agent_include }}/user_parameter.conf"
+    src: user_parameter_linux_security_updates.conf.j2
+    dest: "{{ zabbix_agent_include }}/user_parameter_linux_security_updates.conf"
     owner: root
     group: root
     mode: 0644
