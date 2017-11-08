@@ -4,3 +4,5 @@
 zabbix_agent: zabbix-agent
 zabbix_agent_service: zabbix-agent
 zabbix_agent_conf: zabbix_agentd.conf
+
+user_parameter_linux_security_updates: aptitude -F%p search "?upgradable ?archive(`sed '/^deb .*security/!d;s/^deb [^ ]* \([^ ]*\) .*/\1/;q' /etc/apt/sources.list`)" 2>/dev/null | wc -l

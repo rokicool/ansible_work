@@ -1,0 +1,17 @@
+### Option: UserParameter
+#       User-defined parameter to monitor. There can be several user-defined parameters.
+#       Format: UserParameter=<key>,<shell command>
+#       See 'zabbix_agentd' directory for examples.
+#
+# Mandatory: no
+# Default:
+# UserParameter=
+
+# This is supposed to be  
+# UserParameter=linux.security.updates, yum list updates --security | awk '{print $1;}' | grep `uname -p` | wc -l
+# or 
+# UserParameter=linux.security.updates, aptitude -F%p search "?upgradable ?archive(`sed '/^deb .*security/!d;s/^deb [^ ]* \([^ ]*\) .*/\1/;q' /etc/apt/sources.list`)" 2>/dev/null | wc -l
+
+UserParameter=linux.security.updates, {{ user_parameter_linux_security_updates }} 
+
+

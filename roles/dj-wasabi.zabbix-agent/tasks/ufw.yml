@@ -1,0 +1,12 @@
+- name: "UFW| Adding a rule to allow access"
+  ufw:
+    rule: allow
+    proto: tcp
+    src: "{{ lookup('ip', '{{ zabbix_agent_server}}' ) }}"
+    to_port: 10050
+    comment: "Allow Zabbix to connect"
+  become: yes
+  tags:
+    - zabbix-agent
+    - init
+    - firewall

@@ -119,6 +119,22 @@
     - zabbix-agent
     - config
     - init
+#
+# added by roki on 2017-11-07 
+- name: "Add linux.security.updates user parameter"
+  template:
+    src: user_parameter.conf.j2
+    dest: "{{ zabbix_agent_include }}/user_parameter.conf"
+    owner: root
+    group: root
+    mode: 0644
+  notify:
+    - restart zabbix-agent
+  become: yes
+  tags:
+    - zabbix-agent
+    - config
+    - init
 
 - name: "Create directory for PSK file if not exist."
   file:
@@ -213,3 +229,18 @@
   become: no
   tags:
     - api
+
+#
+# added by roki on 2017-11-06
+# 
+
+
+- name: "Install UFW firewall rule"
+  include: "ufw.yml"
+  when:
+    - ansible_os_family == "Debian"
+  tags:
+    - zabbix-agent
+    - init
+    - config
+    - firewall
