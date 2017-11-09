@@ -59,7 +59,7 @@ zabbix_agent_listenport: 10050
 zabbix_agent_listeninterface:
 zabbix_agent_listenip:
 zabbix_agent_startagents: 3
-zabbix_agent_hostname: "{{ inventory_hostname }}"
+zabbix_agent_hostname: "{{ inventory_hostname_short }}"
 zabbix_agent_hostnameitem:
 zabbix_agent_hostmetadata:
 zabbix_agent_hostmetadataitem:
