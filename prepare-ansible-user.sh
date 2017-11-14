@@ -124,7 +124,7 @@ fi
 
 # check if $AUTH_USER is already listed in authorized_keys
 grep -q -E "${AUTH_USER}" /home/${ANSIBLE_USER}/.ssh/authorized_keys > /dev/null
-if ! $? ;then
+if [ $? -ne 0 ] ;then
    # there is no such string in authorized_keys - add it!
    echo ${AUTH_KEY}${AUTH_USER} >> /home/${ANSIBLE_USER}/.ssh/authorized_keys
 fi
