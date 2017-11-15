@@ -60,6 +60,11 @@ create_user() {
    # we only support Ubuntu 14.04 and higher and CentOS7 and higher
  
    DISTRO=$(awk -F= '/^NAME/{print $2}' /etc/os-release)
+
+   # remove quotes from the string
+   DISTRO="${DISTRO%\"}"
+   DISTRO="${DISTRO#\"}"
+
    case "${DISTRO}" in
       "CentOS Linux")
          ADM_GROUP=wheel
