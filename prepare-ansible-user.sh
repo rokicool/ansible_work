@@ -16,7 +16,7 @@ AUTH_KEY="ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC56DZ56CMl4e8aYIfhRY7+IHa8BbXqUp
 
 AUTH_USER=ansible@sf-ansible-01
 
-NOISE=true
+NOISE=something
 
 print_help() {
    echo ""
@@ -99,7 +99,7 @@ fi
 # check if the group ${ANSIBLE_GROUP} exist
 if ! check_if_group_exist ${ANSIBLE_GROUP} ; then
    # group  ${ANSIBLE_GROUP} does NOT exist - creating
-   [ ${NOISE} ] || echo "${0}: Creating ${ANSIBLE_GROUP} group with GID (${ANSIBLE_GID})"
+   [ ${NOISE} ] && echo "${0}: Creating ${ANSIBLE_GROUP} group with GID (${ANSIBLE_GID})"
    groupadd -g ${ANSIBLE_GID} ${ANSIBLE_GROUP} 
    if [ $? -ne 0 ]; then
       (>&2 echo "${0}: ERROR. Creation of (${ANSIBLE_GROUP}) failed") 
@@ -110,7 +110,7 @@ fi
 # check if the user ${ANSIBLE_USER} exist
 if ! check_if_user_exist ${ANSIBLE_USER} ; then
    # user ${ANSIBLE_USER} does NOT exist - creating
-   [ ${NOISE} ] || echo "${0}: Creating ${ANSIBLE_USER} user with UID (${ANSIBLE_UID})"
+   [ ${NOISE} ] && echo "${0}: Creating ${ANSIBLE_USER} user with UID (${ANSIBLE_UID})"
    create_user ${ANSIBLE_USER} ${ANSIBLE_GROUP} ${ANSIBLE_UID}
    if [ $? -ne 0 ]; then
       (>&2 echo "${0}: ERROR. Creation of (${ANSIBLE_USER}) failed") 
@@ -120,14 +120,14 @@ fi
 
 # allow ansible to sudo without a password
 
-[ ${NOISE} ] || echo "${0}: Creating /etc/sudoers.d/ansible"
+[ ${NOISE} ] && echo "${0}: Creating /etc/sudoers.d/ansible"
 echo ansible ALL = NOPASSWD : ALL > /etc/sudoers.d/ansible
 
 # create or update authorized_keys
 
 if [ ! -d /home/${ANSIBLE_USER}/.ssh ]; then
    # there is no such directory - create it
-   [ ${NOISE} ] || echo "${0}: Creating /home/${ANSIBLE_USER}/.ssh"
+   [ ${NOISE} ] && echo "${0}: Creating /home/${ANSIBLE_USER}/.ssh"
    mkdir /home/${ANSIBLE_USER}/.ssh
    chown ${ANSIBLE_USER}:${ANSIBLE_GROUP} /home/${ANSIBLE_USER}/.ssh
    chmod 700 /home/${ANSIBLE_USER}/.ssh
@@ -142,7 +142,7 @@ fi
 
 if [ ! -f /home/${ANSIBLE_USER}/.ssh/authorized_keys ]; then
    # there is no such file - create it
-   [ ${NOISE} ] || echo "${0}: Creating /home/${ANSIBLE_USER}/.ssh/authorized_keys"
+   [ ${NOISE} ] && echo "${0}: Creating /home/${ANSIBLE_USER}/.ssh/authorized_keys"
    touch /home/${ANSIBLE_USER}/.ssh/authorized_keys 
    chown ${ANSIBLE_USER}:${ANSIBLE_GROUP} /home/${ANSIBLE_USER}/.ssh/authorized_keys
    chmod 600 /home/${ANSIBLE_USER}/.ssh/authorized_keys
@@ -158,7 +158,7 @@ fi
 grep -q -E "${AUTH_USER}" /home/${ANSIBLE_USER}/.ssh/authorized_keys > /dev/null
 if [ $? -ne 0 ] ;then
    # there is no such string in authorized_keys - add it!
-   [ ${NOISE} ] || echo "${0}: Adding key for ${AUTH_USER}"
+   [ ${NOISE} ] && echo "${0}: Adding key for ${AUTH_USER}"
    echo ${AUTH_KEY}${AUTH_USER} >> /home/${ANSIBLE_USER}/.ssh/authorized_keys
 fi
 
