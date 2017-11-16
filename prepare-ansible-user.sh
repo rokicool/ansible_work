@@ -102,7 +102,7 @@ if ! check_if_group_exist ${ANSIBLE_GROUP} ; then
    [ ${NOISE} ] && echo "${0}: Creating ${ANSIBLE_GROUP} group with GID (${ANSIBLE_GID})"
    groupadd -g ${ANSIBLE_GID} ${ANSIBLE_GROUP} 
    if [ $? -ne 0 ]; then
-      (>&2 echo "${0}: ERROR. Creation of (${ANSIBLE_GROUP}) failed") 
+      (>&2 echo "${0}: ERROR. Creation of (${ANSIBLE_GROUP}) group failed") 
       exit 1
    fi
 fi
@@ -113,7 +113,7 @@ if ! check_if_user_exist ${ANSIBLE_USER} ; then
    [ ${NOISE} ] && echo "${0}: Creating ${ANSIBLE_USER} user with UID (${ANSIBLE_UID})"
    create_user ${ANSIBLE_USER} ${ANSIBLE_GROUP} ${ANSIBLE_UID}
    if [ $? -ne 0 ]; then
-      (>&2 echo "${0}: ERROR. Creation of (${ANSIBLE_USER}) failed") 
+      (>&2 echo "${0}: ERROR. Creation of (${ANSIBLE_USER}) user failed") 
       exit 1
    fi
 fi
