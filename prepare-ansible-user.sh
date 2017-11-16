@@ -7,9 +7,9 @@
 #  2. make changes to allow this user to sudo without a password
 #  3. create authirized_keys file to allow remote connection authorized by key
 
-ANSIBLE_GROUP=ansible
+ANSIBLE_GROUP=lansible
 ANSIBLE_GID=1499
-ANSIBLE_USER=ansible
+ANSIBLE_USER=lansible
 ANSIBLE_UID=1499
 
 AUTH_KEY="ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC56DZ56CMl4e8aYIfhRY7+IHa8BbXqUpq7BTQpdozRVQBGQ7QkmTVO6/b/8AjGkK2XzIJUQrT8kboNiPkTFdSkPREwJwUglIyVbw8Hy+jJG7oz+uOCYGa4ntZtxkQ7yydpTnWCPE0qtgD8NaP7C2idJ31gaiJ5668G5xiXMeKh4VAV772CIDidfZs8vQPh2TioaFxPNrLD+H1SXkyjOxhYBdGnKccaT9IZgwEh75+G8p+keeHEN0jBeSJByumppDGMdRNGAMAAVhO8osQhTnXVuKT9QMKWWx/vHzGceaBwl6XmCiyNEdKm9wYLfVNsDZCzO07XwKLdILBKLz+orAJ/ "
