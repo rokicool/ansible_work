@@ -121,7 +121,7 @@ fi
 # allow ansible to sudo without a password
 
 [ ${NOISE} ] && echo "${0}: Creating /etc/sudoers.d/ansible"
-echo ansible ALL = NOPASSWD : ALL > /etc/sudoers.d/ansible
+echo ${ANSIBLE_USER} ALL = NOPASSWD : ALL > /etc/sudoers.d/ansible
 
 # create or update authorized_keys
 
