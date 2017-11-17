@@ -1,5 +1,27 @@
+[test-servers]
 sf-ubu-test.us.opswat.com
 sf-centos-test.us.opswat.com
+
+[unifi-servers]
+sf-unifi.us.opswat.com ansible_user=lansible
+
+[mdcore-servers]
+sf-mdl-02.us.opswat.com ansible_user=lansible
+
+[syslog-servers]
+sf-it-syslog.us.opswat.com ansible_user=lansible
+
+[dns-servers]
+sf-it-dnsmasq01.us.opswat.com ansible_user=lansible
+sf-it-dnsmasq02.us.opswat.com ansible_user=lansible
+
+[squid-servers]
+sf-squid-60-a.us.opswat.com  ansible_user=lansible
+sf-squid-60-b.us.opswat.com  ansible_user=lansible
+
+sf-squid-50-a.us.opswat.com  ansible_user=lansible
+sf-squid-50-b.us.opswat.com  ansible_user=lansible
+
 
 [build-agents]
 centos7-builder1.us.opswat.com
