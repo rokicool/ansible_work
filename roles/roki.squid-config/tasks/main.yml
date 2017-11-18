@@ -1,0 +1,49 @@
+---
+# create necessary config files and restart the services
+- name: Test connection
+  ping:
+
+
+- name: template SQUID configuration file
+  template: 
+    src: squid.conf.j2 
+    dest: /etc/squid/squid.conf
+    owner: root
+    group: root
+    mode: 644
+  become: yes
+  notify:
+    - restart squid
+
+- name: template SQUID errorpage.css
+  template: 
+    src: errorpage.css.j2 
+    dest: /etc/squid/errorpage.css
+    owner: root
+    group: root
+    mode: 644
+  become: yes
+  notify:
+    - restart squid
+
+- name: template SQUID nobumpSites_regex.txt
+  template: 
+     src: nobumpSites_regex.txt.j2 
+     dest: /etc/squid/nobumpSites_regex.txt
+     owner: root
+     group: root
+     mode: 644
+  become: yes
+  notify:
+    - restart squid
+
+- name: template SQUID nobumpSites.txt
+  template: 
+     src: nobumpSites.txt.j2 
+     dest: /etc/squid/nobumpSites.txt
+     owner: root
+     group: root
+     mode: 644
+  become: yes
+  notify:
+    - restart squid

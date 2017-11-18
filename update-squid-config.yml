@@ -1,0 +1,8 @@
+---
+- hosts: test-servers
+  roles:
+    - role: roki.squid-config
+  vars:
+    - squid_icap_service: metascan_resp respmod_precache bypass=1 icap://10.0.1.68:1344/OMSScanResp-AV
+#   - icap_service: metascan_resp respmod_precache bypass=1 icap://10.0.0.68:1345/OMSScanResp-AV
+    - squid_adaptation_access: metascan_resp allow all  

@@ -27,3 +27,4 @@ sf-squid-50-b.us.opswat.com  ansible_user=lansible
 centos7-builder1.us.opswat.com
 centos7-builder2.us.opswat.com
 gearsskyfall.us.opswat.com
+#linuxbuilder3.us.opswat.com ansible_user=lansible
