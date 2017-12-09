@@ -51,3 +51,11 @@
     - zabbix-agent
     - init
     - service
+
+- name: "RedHat | Install yum-plugin-security"
+  yum:
+    name: yum-plugin-security
+    state: installed
+  tags:
+    - init
+    - zabbix-agent

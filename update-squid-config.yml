@@ -1,5 +1,5 @@
 ---
-- hosts: test-servers
+- hosts: test-servers:squid-servers
   roles:
     - role: roki.squid-config
   vars:

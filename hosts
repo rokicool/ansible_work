@@ -2,6 +2,9 @@
 sf-ubu-test.us.opswat.com
 sf-centos-test.us.opswat.com
 
+[nginx-servers]
+sf-reverseproxy02.us.opswat.com ansible_user=lansible
+
 [unifi-servers]
 sf-unifi.us.opswat.com ansible_user=lansible
 
