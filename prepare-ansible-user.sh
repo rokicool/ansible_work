@@ -71,6 +71,9 @@ create_user() {
       "CentOS Linux")
          ADM_GROUP=wheel
          ;;
+      "XenServer")
+         ADM_GROUP=wheel
+         ;;
       "Ubuntu")
          ADM_GROUP=admin
          ;;
