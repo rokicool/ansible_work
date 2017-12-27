@@ -2,6 +2,13 @@
 sf-ubu-test.us.opswat.com
 sf-centos-test.us.opswat.com
 
+[mail-servers]
+sf-postfix.us.opswat.com ansible_user=lansible
+excdemo-mta.napswitch.com ansible_user=lansible
+
+[xen-servers]
+sf-it-xs06.us.opswat.com ansible_user=lansible
+
 [nginx-servers]
 sf-reverseproxy02.us.opswat.com ansible_user=lansible
 
